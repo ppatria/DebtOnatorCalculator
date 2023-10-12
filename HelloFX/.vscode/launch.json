@@ -1,0 +1,163 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "ten",
+            "request": "launch",
+            "mainClass": "ch16.ten",
+            "projectName": "HelloFX_6c18dd3",
+            "vmArgs": [
+                "--module-path",
+                "${env:PATH_TO_FX}",
+                "--add-modules",
+                "javafx.controls,javafx.fxml"
+            ]
+        },
+        {
+            "type": "java",
+            "name": "nine",
+            "request": "launch",
+            "mainClass": "ch16.nine",
+            "projectName": "HelloFX_6c18dd3",
+            "vmArgs": [
+                "--module-path",
+                "${env:PATH_TO_FX}",
+                "--add-modules",
+                "javafx.controls,javafx.fxml"
+            ]
+        },
+        {
+            "type": "java",
+            "name": "eight",
+            "request": "launch",
+            "mainClass": "ch16.eight",
+            "projectName": "HelloFX_6c18dd3",
+            "vmArgs": [
+                "--module-path",
+                "${env:PATH_TO_FX}",
+                "--add-modules",
+                "javafx.controls,javafx.fxml"
+            ]
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}",
+            "vmArgs": [
+                "--module-path",
+                "${env:PATH_TO_FX}",
+                "--add-modules",
+                "javafx.controls,javafx.fxml"
+            ]
+        },
+        {
+            "type": "java",
+            "name": "seven",
+            "request": "launch",
+            "mainClass": "ch16.seven",
+            "projectName": "HelloFX_6c18dd3",
+            "vmArgs": [
+                "--module-path",
+                "${env:PATH_TO_FX}",
+                "--add-modules",
+                "javafx.controls,javafx.fxml"
+            ]
+        },
+        {
+            "type": "java",
+            "name": "six",
+            "request": "launch",
+            "mainClass": "ch16.six",
+            "projectName": "HelloFX_6c18dd3",
+            "vmArgs": [
+                "--module-path",
+                "${env:PATH_TO_FX}",
+                "--add-modules",
+                "javafx.controls,javafx.fxml"
+            ]
+        },
+        {
+            "type": "java",
+            "name": "five",
+            "request": "launch",
+            "mainClass": "ch16.five",
+            "projectName": "HelloFX_6c18dd3",
+            "vmArgs": [
+                "--module-path",
+                "${env:PATH_TO_FX}",
+                "--add-modules",
+                "javafx.controls,javafx.fxml"
+            ]
+        },
+        {
+            "type": "java",
+            "name": "four",
+            "request": "launch",
+            "mainClass": "ch16.four",
+            "projectName": "HelloFX_6c18dd3",
+            "vmArgs": [
+                "--module-path",
+                "${env:PATH_TO_FX}",
+                "--add-modules",
+                "javafx.controls,javafx.fxml"
+            ]
+        },
+        {
+            "type": "java",
+            "name": "one",
+            "request": "launch",
+            "mainClass": "ch16.one",
+            "projectName": "HelloFX_6c18dd3",
+            "vmArgs": [
+                "--module-path",
+                "${env:PATH_TO_FX}",
+                "--add-modules",
+                "javafx.controls,javafx.fxml"
+            ]
+        },
+        {
+            "type": "java",
+            "name": "three",
+            "request": "launch",
+            "mainClass": "ch16.three",
+            "projectName": "HelloFX_6c18dd3",
+            "vmArgs": [
+                "--module-path",
+                "${env:PATH_TO_FX}",
+                "--add-modules",
+                "javafx.controls,javafx.fxml"
+            ]
+        },
+        {
+            "type": "java",
+            "name": "two",
+            "request": "launch",
+            "mainClass": "ch16.two",
+            "projectName": "HelloFX_6c18dd3",
+            "vmArgs": [
+                "--module-path",
+                "${env:PATH_TO_FX}",
+                "--add-modules",
+                "javafx.controls,javafx.fxml"
+            ]
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "hellofx.Main",
+            "projectName": "HelloFX_6c18dd3",
+            "vmArgs": [
+                "--module-path",
+                "${env:PATH_TO_FX}",
+                "--add-modules",
+                "javafx.controls,javafx.fxml"
+            ]
+        }
+    ]
+}
