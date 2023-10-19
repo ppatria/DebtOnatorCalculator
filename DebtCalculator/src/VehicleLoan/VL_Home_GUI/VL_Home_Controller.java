@@ -1,10 +1,10 @@
-package DC;
+package VehicleLoan.VL_Home_GUI;
 
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class Controller {
+public class VL_Home_Controller {
 
     @FXML
     private Label label;
