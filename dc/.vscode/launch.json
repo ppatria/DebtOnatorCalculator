@@ -1,0 +1,33 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}",
+            "vmArgs": [
+                "--module-path",
+                "${env:PATH_TO_FX}",
+                "--add-modules",
+                "javafx.controls,javafx.fxml"
+            ]
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "DC.Main",
+            "projectName": "DebtOnatorCalculator_48f88165",
+            "vmArgs": [
+                "--module-path",
+                "${env:PATH_TO_FX}",
+                "--add-modules",
+                "javafx.controls,javafx.fxml"
+            ]
+        }
+    ]
+}
