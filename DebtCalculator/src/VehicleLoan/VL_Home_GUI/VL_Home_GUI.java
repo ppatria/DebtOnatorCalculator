@@ -29,28 +29,28 @@ public class VL_Home_GUI extends Application{
         grid.setPadding(new Insets(0, 10, 0, 10));
 
         //Create Elements
-        Label lblTitle = new Label("Homepage");
-        grid.add(lblTitle, 0, 0, 2, 1);
+        Label labelTitle = new Label("Homepage");
+        grid.add(labelTitle, 0, 0, 2, 1);
 
-        Label lblNewUser = new Label("New User Enter Here:");
-        grid.add(lblNewUser, 0, 1);
+        Label labelNewUser = new Label("New User Enter Here:");
+        grid.add(labelNewUser, 0, 1);
 
-        TextField tfNewUser = new TextField();
-        grid.add(tfNewUser, 1, 1);
+        TextField textFieldNewUser = new TextField();
+        grid.add(textFieldNewUser, 1, 1);
         
-        Label lblExistingUser = new Label("Existing User Enter Here:");
-        grid.add(lblExistingUser, 0, 2);
+        Label labelExistingUser = new Label("Existing User Enter Here:");
+        grid.add(labelExistingUser, 0, 2);
 
-        TextField tfExistingUser = new TextField();
-        grid.add(tfExistingUser, 1, 2);
+        TextField textFieldExistingUser = new TextField();
+        grid.add(textFieldExistingUser, 1, 2);
 
-        Button btnSubmit = new Button("Submit");
-        grid.add(btnSubmit, 1, 3);
+        Button buttonSubmit = new Button("Submit");
+        grid.add(buttonSubmit, 1, 3);
 
         //Set OnClick for the button        
-        btnSubmit.setOnMouseClicked(e -> {
-            String newUser = tfNewUser.getText();
-            String existingUser = tfExistingUser.getText();
+        buttonSubmit.setOnMouseClicked(e -> {
+            String newUser = textFieldNewUser.getText();
+            String existingUser = textFieldExistingUser.getText();
 
             // Validate inputs
             Pattern pattern = Pattern.compile("[A-Za-z0-9]*");
@@ -80,8 +80,10 @@ public class VL_Home_GUI extends Application{
                     Files.createFile(pathToFile);
                 } catch (IOException ex) {
                     ex.printStackTrace();
+                    new Alert(Alert.AlertType.ERROR, "Username already used").showAndWait();
+                    return;
                 } catch (IllegalArgumentException iae){
-                    new Alert(Alert.AlertType.ERROR, "Invalid filename").showAndWait();
+                    new Alert(Alert.AlertType.ERROR, "Username not found").showAndWait();
                     return;
                 }
                 return;
@@ -103,11 +105,13 @@ public class VL_Home_GUI extends Application{
                     new Alert(Alert.AlertType.ERROR, "This user doesn't exist, Please enter in as a new user").showAndWait();
                 }
             }
+
+        
         });
 
         //Build the Stage
         Scene scene = new Scene(grid, 500, 500);
-        primaryStage.setTitle("Homepage");
+        primaryStage.setTitle("Welcome to the DebtOnator Calculator Homepage!");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
