@@ -15,7 +15,7 @@
             "type": "java",
             "name": "Main",
             "request": "launch",
-            "mainClass": "VehicleLoan.VL_Home_GUI.VL_Home_GUI",
+            "mainClass": "VehicleLoan.VL_Home_GUI.Main",
             "projectName": "DebtCalc + Git_1db9530f",
              "vmArgs": ["--module-path", "${env:PATH_TO_FX}", "--add-modules", "javafx.controls,javafx.fxml"]
         }
