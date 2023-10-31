@@ -1,16 +1,18 @@
-package VehicleLoan.VL_Info_GUI;
+package AutoLoan.AL_Info_GUI;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import java.io.IOException;
-import VehicleLoan.VL_Home_GUI.Main;
+
 import javafx.event.ActionEvent;
 import javafx.scene.control.TextField;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class VL_Info_Controller {
+import AutoLoan.AL_Home_GUI.Main;
+
+public class AL_Info_Controller {
     
     @FXML
     private TextField vehicleYearTextField;

@@ -1,4 +1,4 @@
-package VehicleLoan.VL_Home_GUI;
+package AutoLoan.AL_Home_GUI;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -9,15 +9,15 @@ import java.io.IOException;
 
 public class Main extends Application{
 
-    private static Stage sceneChangerObject;
+    public static Stage sceneChangerObject;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
         sceneChangerObject = primaryStage;
         primaryStage.setResizable(true);
-        Parent root = FXMLLoader.load(getClass().getResource("VL_Home.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("AL_Home.fxml"));
         primaryStage.setTitle("DebtOnator Calculator");
-        primaryStage.setScene(new Scene(root, 500, 500));
+        primaryStage.setScene(new Scene(root, 700, 500));
         primaryStage.show();
     }
     
