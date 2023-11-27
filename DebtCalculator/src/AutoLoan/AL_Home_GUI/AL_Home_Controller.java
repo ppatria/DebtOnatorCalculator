@@ -1,5 +1,6 @@
 package AutoLoan.AL_Home_GUI;
 
+import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -12,6 +13,7 @@ import java.nio.file.Paths;
 import java.util.Scanner;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 
 public class AL_Home_Controller {
 
@@ -59,9 +61,11 @@ public class AL_Home_Controller {
         new Alert(Alert.AlertType.ERROR, "Username does not exist").showAndWait();
     }
 
-    public void newUser(ActionEvent newUserEvent) throws IOException{
+      public void newUser(ActionEvent newUserEvent) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/AutoLoan/AL_New_User_GUI/AL_New_User.fxml"));
+        Parent root = loader.load();
         Main sceneChangerObject = new Main();
-        sceneChangerObject.changeScene("/AutoLoan/AL_New_User_GUI/AL_New_User.fxml");
+        sceneChangerObject.changeScene(root);
     }
 
 }
