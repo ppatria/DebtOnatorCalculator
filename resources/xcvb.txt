@@ -1,5 +1,0 @@
-username,xcvb
-password,xcvb
-year,4567
-make,dsfg
-model,sgdf

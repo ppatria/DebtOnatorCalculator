@@ -1,0 +1,5 @@
+username,Bob
+password,bob
+year,1997
+make,Toy
+model,Cam

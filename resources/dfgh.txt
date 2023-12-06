@@ -1,5 +1,0 @@
-username,dfgh
-password,dfgh
-year,3333
-make,fdgh
-model,dfgh

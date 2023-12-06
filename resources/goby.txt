@@ -1,5 +1,0 @@
-username,goby
-password,goby
-year,1234
-make,hiya
-model,hooha

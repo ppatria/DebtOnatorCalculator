@@ -7,8 +7,9 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AutoLoan.AL_New_User_GUI.AL_New_User_Controller">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color:#D8BFD8;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AutoLoan.AL_New_User_GUI.AL_New_User_Controller">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="261.0" minWidth="10.0" prefWidth="207.0" />
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="260.0" minWidth="10.0" prefWidth="222.0" />
@@ -22,20 +23,38 @@
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
          <children>
-            <Label fx:id="VL_Info_Username" layoutX="57.0" layoutY="46.0" text="New Account Creation" />
+            <Label fx:id="VL_Info_Username" layoutX="-28.0" layoutY="35.0" text="New Account Creation" textFill="WHITE">
+               <font>
+                  <Font size="26.0" />
+               </font></Label>
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="1" GridPane.rowSpan="2">
          <children>
-            <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="270.0" layoutY="142.0" prefHeight="17.0" prefWidth="127.0" text="Make: " />
-            <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="270.0" layoutY="74.0" prefHeight="17.0" prefWidth="127.0" text="Year:" />
-            <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="264.0" layoutY="202.0" prefHeight="17.0" prefWidth="133.0" text="Model: " />
+            <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="270.0" layoutY="142.0" prefHeight="17.0" prefWidth="127.0" text="Make: " textFill="#fff7f7">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="270.0" layoutY="74.0" prefHeight="17.0" prefWidth="127.0" text="Year:" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="264.0" layoutY="202.0" prefHeight="17.0" prefWidth="133.0" text="Model: " textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
             <TextField fx:id="vehicleYearTextField" layoutX="437.0" layoutY="70.0" promptText="YYYY" />
             <TextField fx:id="vehicleMakeTextField" layoutX="437.0" layoutY="138.0" promptText="i.e Toyota" />
             <TextField fx:id="vehicleModelTextField" layoutX="437.0" layoutY="198.0" promptText="i.e Camry" />
             <Button fx:id="createNewAccountButton" layoutX="459.0" layoutY="253.0" mnemonicParsing="false" onAction="#createNewAccount" prefHeight="25.0" prefWidth="127.0" text="Create New Account" />
-            <Label layoutX="14.0" layoutY="74.0" text="Create New Username: " />
-            <Label layoutX="14.0" layoutY="130.0" text="Create New Password: " />
+            <Label layoutX="14.0" layoutY="74.0" text="Create New Username: " textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label layoutX="14.0" layoutY="130.0" text="Create New Password: " textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
             <TextField fx:id="newUsernameTextField" layoutX="165.0" layoutY="70.0" promptText="Username" />
             <TextField fx:id="newPasswordTextField" layoutX="165.0" layoutY="130.0" promptText="Password" />
          </children>
