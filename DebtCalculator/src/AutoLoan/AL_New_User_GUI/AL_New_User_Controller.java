@@ -98,14 +98,14 @@ public class AL_New_User_Controller {
             fileWriter.write("year," + vehicleYear + "\n");
             fileWriter.write("make," + vehicleMake + "\n");
             fileWriter.write("model," + vehicleModel + "\n");
-            // fileWriter.write("state," + "\n");
-            // fileWriter.write("total loan amount," + "\n");
-            // fileWriter.write("original loan date," + "\n");
-            // fileWriter.write("interest rate," + "\n");
-            // fileWriter.write("loan term," + "\n");
-            // fileWriter.write("down payment," + "\n");
-            // fileWriter.write("sales tax," + "\n");
-            // fileWriter.write("additional fees," + "\n");
+            fileWriter.write("state," + "\n");
+            fileWriter.write("total loan amount," + "\n");
+            fileWriter.write("original loan date," + "\n");
+            fileWriter.write("interest rate," + "\n");
+            fileWriter.write("loan term," + "\n");
+            fileWriter.write("down payment," + "\n");
+            fileWriter.write("sales tax," + "\n");
+            fileWriter.write("additional fees," + "\n");
             fileWriter.close();
 
             new Alert(Alert.AlertType.INFORMATION, "Account created successfully").showAndWait();

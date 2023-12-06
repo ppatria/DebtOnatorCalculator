@@ -43,13 +43,21 @@ public class AL_Home_Controller {
     }
 
     private void checkUsernameAndPassword() throws FileNotFoundException {
-      String inputUsername = usernameTextField.getText();
-      String inputPassword = passwordTextField.getText();
-      String username = null;
-      String vehicleYear = null;
-      String vehicleMake = null;
-      String vehicleModel = null;
-      Scanner scanner = null;
+    String inputUsername = usernameTextField.getText();
+    String inputPassword = passwordTextField.getText();
+    String username = null;
+    String vehicleYear = null;
+    String vehicleMake = null;
+    String vehicleModel = null;
+    String state = null;
+    String totalLoanAmount = null;
+    String originalLoanDate = null;
+    String interestRate = null;
+    String loanTerm = null;
+    String downPayment = null;
+    String salesTax = null;
+    String additionalFees = null;
+    Scanner scanner = null;
       
       try {
           File file = new File("resources/" + inputUsername + ".txt");
@@ -77,17 +85,42 @@ public class AL_Home_Controller {
                           return;
                       }
                       break;
+
+                // If there is a second element in the `details` array, assign it to the variable. Otherwise, assign an empty string to the variable
                   case "year":
-                      vehicleYear = details[1];
+                      vehicleYear = details.length > 1 ? details[1] : "";
                       break;
                   case "make":
-                      vehicleMake = details[1];
+                      vehicleMake = details.length > 1 ? details[1] : "";
                       break;
                   case "model":
-                      vehicleModel = details[1];
+                      vehicleModel = details.length > 1 ? details[1] : "";
                       break;
-              }
-          }
+                  case "state":
+                      state = details.length > 1 ? details[1] : "";
+                      break;
+                  case "total loan amount":
+                      totalLoanAmount = details.length > 1 ? details[1] : "";
+                  case "original loan date":
+                      originalLoanDate = details.length > 1 ? details[1] : "";
+                      break;
+                  case "interest rate":
+                      interestRate = details.length > 1 ? details[1] : "";
+                      break;
+                  case "loan term":
+                      loanTerm = details.length > 1 ? details[1] : "";
+                      break;
+                  case "down payment":
+                      downPayment = details.length > 1 ? details[1] : "";
+                      break;
+                  case "sales tax":
+                      salesTax = details.length > 1 ? details[1] : "";
+                      break;
+                  case "additional fees":
+                      additionalFees = details.length > 1 ? details[1] : "";
+                      break;
+                }
+         }
       } catch (FileNotFoundException e) {
           new Alert(Alert.AlertType.ERROR, "Username does not exist").showAndWait();
           throw e;
@@ -100,7 +133,7 @@ public class AL_Home_Controller {
       // Check all fields are filled correctly
       if (username != null && vehicleYear != null && vehicleMake != null && vehicleModel != null) {
           try {
-            existingUser(username, vehicleYear, vehicleMake, vehicleModel);
+            existingUser(username, vehicleYear, vehicleMake, vehicleModel, state, totalLoanAmount, originalLoanDate, interestRate, loanTerm, downPayment, salesTax, additionalFees );
           } catch (IOException e) {
             e.printStackTrace();
           }
@@ -111,11 +144,23 @@ public class AL_Home_Controller {
     }
 
     // Method to go to Calculations_GUI
-    public void existingUser(String username, String vehicleYear, String vehicleMake, String vehicleModel) throws IOException{
+    public void existingUser(String username, String vehicleYear, String vehicleMake, String vehicleModel, String state, String totalLoanAmount, String originalLoanDate, String interestRate, 
+                             String loanTerm, String downPayment, String salesTax, String additionalFees) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/AutoLoan/AL_Calculations_GUI/AL_Calculations.fxml"));
         Parent root = loader.load();
+
         AL_Calculations_Controller calculationsController = loader.getController();
+
         calculationsController.setUserData(username, vehicleYear, vehicleMake, vehicleModel);
+        calculationsController.setState(state);
+        calculationsController.setTotalLoanAmount(totalLoanAmount);
+        calculationsController.setOriginalLoanDate(originalLoanDate);
+        calculationsController.setInterestRate(interestRate);
+        calculationsController.setLoanTerm(loanTerm);
+        calculationsController.setDownPayment(downPayment);
+        calculationsController.setSalesTax(salesTax);
+        calculationsController.setAdditionalFees(additionalFees);
+
         Main sceneChangerObject = new Main();
         sceneChangerObject.changeScene(root);
     }

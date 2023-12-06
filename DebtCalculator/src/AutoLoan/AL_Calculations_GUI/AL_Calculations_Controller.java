@@ -74,6 +74,44 @@ public class AL_Calculations_Controller {
         ));
     }
 
+    public void setState(String state) {
+        if(!state.isEmpty()) {
+            stateComboBox.setValue(state);
+        }
+    }
+
+    public void setTotalLoanAmount(String totalLoanAmount) {
+        totalLoanAmountTextField.setText(totalLoanAmount);
+    }
+
+    public void setOriginalLoanDate(String originalLoanDate) {
+        originalLoanDateTextField.setText(originalLoanDate);
+    }
+
+        public void setInterestRate(String interestRate) {
+        interestRateTextField.setText(interestRate);
+    }
+
+    public void setLoanTerm(String loanTerm) {
+        loanTermTextField.setText(loanTerm);
+    }
+
+    public void setDownPayment(String downPayment) {
+        downPaymentTextField.setText(downPayment);
+    }
+
+    public void setSalesTax(String salesTax) {
+        salesTaxTextField.setText(salesTax);
+    }
+
+    public void setAdditionalFees(String additionalFees) {
+        additionalFeesTextField.setText(additionalFees);
+    }
+
+
+
+
+
     public void handleCalculateButtonOnAction(ActionEvent event) {
 
         Pattern datePattern = Pattern.compile("^(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/((19|20)\\d\\d)$");
@@ -137,32 +175,39 @@ public class AL_Calculations_Controller {
 
     public void handleSaveButtonOnAction(ActionEvent event) {
         try {
-            Path path = Paths.get("output.txt");
-            FileWriter writer = new FileWriter(new File(path.toUri()));
+        Path path = Paths.get("resources/" + vehicleInfoLabel.getText().split("\n")[0].split(": ")[1] + ".txt"); // extract the username from vehicleInfoLabel
+        FileWriter writer = new FileWriter(new File(path.toUri()));
 
-            writer.write("Minimum Payment per Month: " + minPaymentPerMonthTextField.getText() + "\n");
-            writer.write("Total Interest Cost: " + totalInterestCostTextField.getText() + "\n");
-            writer.write("Total Expected Cost: " + totalCostTextField.getText() + "\n");
-            writer.write("Expected Fully Paid Date: " + fullyPaidDateTextField.getText() + "\n");
-            writer.write("Loan term (Months): " + loanTermTextField.getText() + "\n");
-            writer.write("Down payment: " + downPaymentTextField.getText() + "\n");
+        writer.write("username," + vehicleInfoLabel.getText().split("\n")[0].split(": ")[1] + "\n");
+        writer.write("password," + "" + "\n"); // you may extract password in similar way
+        writer.write("year," + "" + "\n"); // you may extract vehicleYear in similar way
+        writer.write("make," + "" + "\n"); // you may extract vehicleMake in similar way
+        writer.write("model," + "" + "\n"); // you may extract vehicleModel in similar way
+         writer.write("state," + (stateComboBox.getValue() != null ? stateComboBox.getValue().toString() : "") + "\n");
+        writer.write("total loan amount," + (!totalLoanAmountTextField.getText().isEmpty() ? totalLoanAmountTextField.getText() : "") + "\n");
+        writer.write("original loan date," + (!originalLoanDateTextField.getText().isEmpty() ? originalLoanDateTextField.getText() : "") + "\n");
+        writer.write("interest rate," + (!interestRateTextField.getText().isEmpty() ? interestRateTextField.getText() : "") + "\n");
+        writer.write("loan term," + (!loanTermTextField.getText().isEmpty() ? loanTermTextField.getText() : "") + "\n");
+        writer.write("down payment," + (!downPaymentTextField.getText().isEmpty() ? downPaymentTextField.getText() : "") + "\n");
+        writer.write("sales tax," + (!salesTaxTextField.getText().isEmpty() ? salesTaxTextField.getText() : "") + "\n");
+        writer.write("additional fees," + (!additionalFeesTextField.getText().isEmpty() ? additionalFeesTextField.getText() : "") + "\n");
 
-            writer.close();
+        writer.close();
 
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Save");
-            alert.setHeaderText(null);
-            alert.setContentText("Information saved.");
-            alert.showAndWait();
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Save");
+        alert.setHeaderText(null);
+        alert.setContentText("Information saved.");
+        alert.showAndWait();
 
-        } catch (IOException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText(null);
-            alert.setContentText("An error occurred while trying to save the information.");
-            alert.showAndWait();
-        }
+    } catch (IOException e) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText(null);
+        alert.setContentText("An error occurred while trying to save the information.");
+        alert.showAndWait();
     }
+}
 
 
     public void handleExitButtonOnAction(ActionEvent event) {
