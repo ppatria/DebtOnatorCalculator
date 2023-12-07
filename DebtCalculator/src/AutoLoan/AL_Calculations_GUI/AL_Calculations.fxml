@@ -67,9 +67,9 @@
       </AnchorPane>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <children>
-            <Button fx:id="saveButton" layoutX="220.0" layoutY="38.0" mnemonicParsing="false" onAction="#handleSaveButtonOnAction" prefHeight="25.0" prefWidth="65.0" text="Save" />
+            <Button fx:id="saveButton" layoutX="110.0" layoutY="38.0" mnemonicParsing="false" onAction="#handleSaveButtonOnAction" prefHeight="25.0" prefWidth="65.0" text="Save" />
             <Button fx:id="exitButton" layoutX="18.0" layoutY="38.0" mnemonicParsing="false" onAction="#handleExitButtonOnAction" text="Exit" />
-            <Button fx:id="calculateButton" layoutX="115.0" layoutY="38.0" mnemonicParsing="false" onAction="#handleCalculateButtonOnAction" text="Calculate" />
+            <Button fx:id="calculateButton" layoutX="224.0" layoutY="38.0" mnemonicParsing="false" onAction="#handleCalculateButtonOnAction" text="Calculate" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">

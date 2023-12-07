@@ -1,12 +1,12 @@
 username,Bob
-password,
-year,
-make,
-model,
-state,CO
-total loan amount,1234
+password,bob
+year,1997
+make,toy
+model,cam
+state,AR
+total loan amount,
 original loan date,
-interest rate,5
+interest rate,
 loan term,
 down payment,
 sales tax,

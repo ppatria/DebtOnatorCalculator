@@ -12,6 +12,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javafx.collections.FXCollections;
@@ -173,41 +174,68 @@ public class AL_Calculations_Controller {
         }
     }
 
+    // When save button is pressed, all variables that the user filled in, will be written into the username.txt file
     public void handleSaveButtonOnAction(ActionEvent event) {
         try {
-        Path path = Paths.get("resources/" + vehicleInfoLabel.getText().split("\n")[0].split(": ")[1] + ".txt"); // extract the username from vehicleInfoLabel
-        FileWriter writer = new FileWriter(new File(path.toUri()));
+            String username = vehicleInfoLabel.getText().split("\n")[0].split(": ")[1];
+            Path path = Paths.get("resources/" + username + ".txt");
 
-        writer.write("username," + vehicleInfoLabel.getText().split("\n")[0].split(": ")[1] + "\n");
-        writer.write("password," + "" + "\n"); // you may extract password in similar way
-        writer.write("year," + "" + "\n"); // you may extract vehicleYear in similar way
-        writer.write("make," + "" + "\n"); // you may extract vehicleMake in similar way
-        writer.write("model," + "" + "\n"); // you may extract vehicleModel in similar way
-         writer.write("state," + (stateComboBox.getValue() != null ? stateComboBox.getValue().toString() : "") + "\n");
-        writer.write("total loan amount," + (!totalLoanAmountTextField.getText().isEmpty() ? totalLoanAmountTextField.getText() : "") + "\n");
-        writer.write("original loan date," + (!originalLoanDateTextField.getText().isEmpty() ? originalLoanDateTextField.getText() : "") + "\n");
-        writer.write("interest rate," + (!interestRateTextField.getText().isEmpty() ? interestRateTextField.getText() : "") + "\n");
-        writer.write("loan term," + (!loanTermTextField.getText().isEmpty() ? loanTermTextField.getText() : "") + "\n");
-        writer.write("down payment," + (!downPaymentTextField.getText().isEmpty() ? downPaymentTextField.getText() : "") + "\n");
-        writer.write("sales tax," + (!salesTaxTextField.getText().isEmpty() ? salesTaxTextField.getText() : "") + "\n");
-        writer.write("additional fees," + (!additionalFeesTextField.getText().isEmpty() ? additionalFeesTextField.getText() : "") + "\n");
+            Scanner scanner = new Scanner(new File(path.toUri()));
 
-        writer.close();
+            String password = "", year = "", make = "", model = "";
 
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Save");
-        alert.setHeaderText(null);
-        alert.setContentText("Information saved.");
-        alert.showAndWait();
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                String[] details = line.split(",");
+                switch (details[0]) {
+                    case "password":
+                        password = details[1];
+                        break;
+                    case "year":
+                        year = details[1];
+                        break;
+                    case "make":
+                        make = details[1];
+                        break;
+                    case "model":
+                        model = details[1];
+                        break;
+                }
+            }
 
-    } catch (IOException e) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error");
-        alert.setHeaderText(null);
-        alert.setContentText("An error occurred while trying to save the information.");
-        alert.showAndWait();
+            scanner.close();
+
+            FileWriter writer = new FileWriter(new File(path.toUri()));
+
+            writer.write("username," + username + "\n");
+            writer.write("password," + password + "\n");
+            writer.write("year," + year + "\n");
+            writer.write("make," + make + "\n");
+            writer.write("model," + model + "\n");
+            writer.write("state," + (stateComboBox.getValue() != null ? stateComboBox.getValue().toString() : "") + "\n");
+            writer.write("total loan amount," + (!totalLoanAmountTextField.getText().isEmpty() ? totalLoanAmountTextField.getText() : "") + "\n");
+            writer.write("original loan date," + (!originalLoanDateTextField.getText().isEmpty() ? originalLoanDateTextField.getText() : "") + "\n");
+            writer.write("interest rate," + (!interestRateTextField.getText().isEmpty() ? interestRateTextField.getText() : "") + "\n");
+            writer.write("loan term," + (!loanTermTextField.getText().isEmpty() ? loanTermTextField.getText() : "") + "\n");
+            writer.write("down payment," + (!downPaymentTextField.getText().isEmpty() ? downPaymentTextField.getText() : "") + "\n");
+            writer.write("sales tax," + (!salesTaxTextField.getText().isEmpty() ? salesTaxTextField.getText() : "") + "\n");
+            writer.write("additional fees," + (!additionalFeesTextField.getText().isEmpty() ? additionalFeesTextField.getText() : "") + "\n");
+
+            writer.close();
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Save");
+            alert.setHeaderText(null);
+            alert.setContentText("Information saved.");
+            alert.showAndWait();
+        } catch (IOException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("An error occurred while trying to save the information.");
+            alert.showAndWait();
+        }
     }
-}
 
 
     public void handleExitButtonOnAction(ActionEvent event) {
